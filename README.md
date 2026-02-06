@@ -61,52 +61,67 @@
 ## Project Structure
 
 ```
-vanilla-pure-php-crud-application/
-├── config/                    # Configuration files
-│   ├── app.php               # Application constants
-│   ├── config.php            # Main loader
-│   ├── connection.php        # Database connection
-│   └── env.php               # Environment variable loader
-├── includes/                 # Core includes
-│   ├── bootstrap.php         # Bootstrap loader
-│   ├── session.php          # Session management
-│   ├── csrf.php             # CSRF protection
-│   ├── auth.php             # Authentication helpers
-│   ├── header.php           # Page header
-│   ├── footer.php           # Page footer
-│   └── navbar.php           # Navigation bar
-├── src/Helpers/             # Helper functions
-│   ├── url.php              # URL helper
-│   ├── flash.php            # Flash messages
-│   ├── sanitize.php         # HTML escaping
-│   └── permissions.php      # RBAC functions
-├── action/                  # Form submission handlers
-│   ├── login_action.php     # Login processing
-│   ├── register_action.php  # Registration processing
-│   └── article/             # Article CRUD actions
-├── admin/                   # Admin panel (RBAC management)
-│   ├── index.php           # Admin dashboard
-│   ├── roles.php           # Role management
-│   ├── permissions.php     # Permission management
-│   ├── user_roles.php      # User role assignment
-│   └── role_permissions.php # Role permission assignment
-├── pages/                   # Application pages
-│   ├── article_add_form.php    # Add article form
-│   ├── article_edit_form.php   # Edit article form
-│   ├── article_view_form.php   # View articles list
-│   ├── categories.php          # Category management
-│   ├── category_add.php        # Add category form
-│   ├── category_edit.php       # Edit category form
-│   └── category_delete_action.php # Delete category action
-├── assets/                  # Static resources
-│   ├── css/                # Stylesheets
-│   ├── js/                 # JavaScript
-│   └── images/             # Images
-├── *.php                   # Public pages (home.php, auth/*.php, etc.)
-├── blog.sql               # Complete database schema
-├── database_articles_categories_migration.sql # Migration script
-├── .env.example           # Environment template
-└── README.md             # This file
+
+├── action
+│   ├── article
+│   │   ├── article_add_action.php
+│   │   ├── article_delete_action.php
+│   │   └── article_edit_action.php
+│   ├── login_action.php
+│   └── register_action.php
+├── admin
+│   ├── index.php
+│   ├── permission_add.php
+│   ├── permission_edit.php
+│   ├── permissions.php
+│   ├── role_add.php
+│   ├── role_edit.php
+│   ├── role_permissions.php
+│   ├── roles.php
+│   └── user_roles.php
+├── assets
+│   ├── css
+│   │   └── style.css
+│   └── js
+│       └── script.js
+├── auth
+│   ├── login.php
+│   ├── logout.php
+│   ├── register.php
+│   └── setup_super_admin.php
+├── blog.sql
+├── config
+│   ├── app.php
+│   ├── config.php
+│   ├── connection.php
+│   └── env.php
+├── home.php
+├── includes
+│   ├── auth.php
+│   ├── bootstrap.php
+│   ├── csrf.php
+│   ├── footer.php
+│   ├── header.php
+│   ├── navbar.php
+│   └── session.php
+├── pages
+│   ├── article_add_form.php
+│   ├── article_edit_form.php
+│   ├── article_view_form.php
+│   ├── categories.php
+│   ├── category_add.php
+│   ├── category_delete_action.php
+│   └── category_edit.php
+├── README.md
+└── src
+    └── Helpers
+        ├── flash.php
+        ├── permissions.php
+        ├── sanitize.php
+        └── url.php
+
+
+
 ```
 
 **Note**: Application pages (articles and categories) are organized in the `pages/` directory for better structure, while RBAC management remains in `admin/`.
