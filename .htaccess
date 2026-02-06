@@ -1,0 +1,22 @@
+DirectoryIndex home.php index.php
+
+RewriteEngine On
+RewriteBase /php-blog-vanilla/
+
+# Avoid Apache content negotiation conflicts
+Options -MultiViews
+
+# 1) Remove trailing slash (SEO: single canonical URL)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ $1 [R=301,L]
+
+# 2) Don’t rewrite real files/folders
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 3) Pretty URL: /edit/10 -> edit.php?id=10  (optional but recommended)
+RewriteRule ^edit/([0-9]+)$ edit.php?id=$1 [L,QSA]
+
+# 4) Extensionless mapping: /view -> view.php
+RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [L,QSA]
